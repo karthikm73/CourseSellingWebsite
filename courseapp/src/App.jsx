@@ -5,6 +5,7 @@ import CreateCourse from './components/CreateCourse';
 import {
   RecoilRoot
 } from 'recoil';
+import EditCourse from './components/EditCourse';
 
 function App() {
   
@@ -19,6 +20,8 @@ function App() {
     <Route path="/" element={<Landing/>} />
   <Route path="/courses" element={<Courses/>} />
   <Route path="/createcourse" element={<CreateCourse/>} />
+  <Route path="/course/:id" element={<EditCourse/>} />
+  
     
 
   

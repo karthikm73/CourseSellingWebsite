@@ -20,7 +20,7 @@ const courseSchema = new mongoose.Schema({
     price: Number,
     author: String,
     imageLink: String,
-    published: Boolean
+    published: String
 });
 
 const User = mongoose.model('User', userSchema);

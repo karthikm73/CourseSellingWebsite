@@ -51,7 +51,14 @@ return (
 
 }
 
+
+
 function Course(props){
+
+    function edit (id){
+        navigate('/courses/'+id);
+
+    }
     return(
         <>
         <Card >
@@ -60,7 +67,7 @@ function Course(props){
         <h6>{props.course.price}</h6>
         <img src={props.course.imageLink} style={{width: 100}}></img>
         <br></br>
-        <button>Edit Course</button>
+        <button onClick={()=>edit(props.course._id)}>Edit Course</button>
         </Card>
         <br></br>
         

@@ -1,0 +1,93 @@
+const express = require('express');
+const jwt = require('jsonwebtoken');
+
+
+const {Admin,Course} = require('../db/index.js')
+
+const {authenticatejwt,SECRET} = require('../middlewares/auth.js')
+
+
+
+
+
+
+const router = express.Router();
+
+//routes i need
+// /me if admin is present or not and then send the username of the admin used in navbar
+// /singup
+// /login
+// /course to create courses
+// /courses  get all courses
+// /courses/:id to get specific course
+// /courses/:id to edit specific course
+
+router.get('/me',authenticatejwt,async(req,res)=>{
+    const admin = await Admin.findOne({username : req.user.username});
+    if(!admin){
+        res.status(403).json({msg: "Admin doesnt exist"})
+        return
+    }
+    else{
+        res.json({
+            username: admin.username
+        })
+
+    }
+});
+
+router.post('/signup',async(req,res)=>{
+    const {username,password} = req.body;
+    const admin = await Admin.findOne({username});
+    if(admin){
+        res.status(403).json({message:"Admin already exits"});
+    }
+    else{
+    const newAdmin =  new Admin({username,password});
+    await newAdmin.save();
+    const token = jwt.sign({ username, role: 'admin' }, SECRET);
+    res.json({ message: 'Admin created successfully', token });
+
+    }
+
+})
+
+router.post('/login',async(req,res)=>{
+    const {user,password} = req.body;
+    const admin = await Admin.findOne({username});
+    if(admin){
+        const token = jwt.sign({ username, role: 'admin' }, SECRET);
+        res.json({ message: 'Admin login successfully', token });
+    }
+    else{
+        res.status(403).json({ message: 'Invalid username or password' });
+    }
+})
+
+router.post('/courses', authenticatejwt, async (req, res) => {
+    const course = new Course(req.body);
+    await course.save();
+    res.json({ message: 'Course created successfully', courseId: course.id });
+  });
+  
+  router.put('/courses/:courseId', authenticatejwt, async (req, res) => {
+    const course = await Course.findByIdAndUpdate(req.params.courseId, req.body, { new: true });
+    if (course) {
+      res.json({ message: 'Course updated successfully' });
+    } else {
+      res.status(404).json({ message: 'Course not found' });
+    }
+  });
+  
+  router.get('/courses', authenticatejwt, async (req, res) => {
+    const courses = await Course.find({});
+    res.json({ courses });
+  });
+  
+  router.get('/course/:courseId', authenticatejwt, async (req, res) => {
+    const courseId = req.params.courseId;
+    const course = await Course.findById(courseId);
+    res.json({ course });
+  });
+
+  module.exports = router

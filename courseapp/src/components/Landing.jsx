@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 import { useState } from "react";
 import axios from 'axios';
-import { BASE_URL } from "../config,js";
+import { BASE_URL } from "../config.js";
 
 import {useSetRecoilState} from "recoil";
 import {userState} from "../store/atoms/user.js";

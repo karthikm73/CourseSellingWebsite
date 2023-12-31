@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BASE_URL } from "../config,js";
+import { BASE_URL } from "../config.js";
 import axios from 'axios';
 import {Card} from '@mui/material'
 import { useNavigate } from "react-router-dom";
@@ -54,9 +54,10 @@ return (
 
 
 function Course(props){
+    const navigate = useNavigate();
 
     function edit (id){
-        navigate('/courses/'+id);
+        navigate('/course/'+id);
 
     }
     return(

@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 import { useEffect,useState } from 'react';
-import { BASE_URL } from "../config,js";
+import { BASE_URL } from "../config.js";
 import { Radio } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 

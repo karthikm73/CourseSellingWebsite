@@ -6,35 +6,31 @@ import {
   RecoilRoot
 } from 'recoil';
 import EditCourse from './components/EditCourse';
+import Appbar  from './components/Appbar';
 
 function App() {
-  
+
 
   return <>
-  <RecoilRoot>
- <Router>
- 
-
- <Routes>
-    
-    <Route path="/" element={<Landing/>} />
-  <Route path="/courses" element={<Courses/>} />
-  <Route path="/createcourse" element={<CreateCourse/>} />
-  <Route path="/course/:id" element={<EditCourse/>} />
-  
     
 
-  
+    <RecoilRoot>
+      <Router>
+        <Appbar />
+        <Routes>
 
-  </Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/courses" element={<Courses />} />
+          <Route path="/createcourse" element={<CreateCourse />} />
+          <Route path="/course/:id" element={<EditCourse />} />
 
-  
- </Router>
- </RecoilRoot>
-  
+        </Routes>
+      </Router>
+    </RecoilRoot>
+
   </>
-   
-     
+
+
 }
 
 export default App

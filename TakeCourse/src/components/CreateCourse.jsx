@@ -44,6 +44,7 @@ function CreateCourse() {
     return (
         <div>
             <TextField id="title" label="Title" variant="outlined" fullWidth onChange={(e) => setTitle(e.target.value)} />
+     
             <TextField id="description" label="Description" variant="outlined" fullWidth onChange={(e) => setDescription(e.target.value)} />
             <TextField id="image" label="Image" variant="outlined" fullWidth onChange={(e) => setImage(e.target.value)} />
             <TextField id="price" label="Price" variant="outlined" fullWidth onChange={(e) => setPrice(e.target.value)} />

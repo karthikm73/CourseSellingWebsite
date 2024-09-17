@@ -87,13 +87,15 @@ function SingleCourse() {
     }
   }
 
+  console.log(course);
+
     return (
       <>
         <Typography variant="h4">Your Purchased Courses</Typography>
         <Box sx={{ width: '100%' }}>
           <Typography variant="h5">{course.title}</Typography>
           <br></br>
-          <Typography variant="subtitle1">Author: {author}</Typography>
+          {/* <Typography variant="subtitle1">Author: {author}</Typography> */}
           <br></br>
           <Typography variant="subtitle1">{course.description}</Typography>
           <img src={`${course.image}`} style={{ width: '300px' }} alt={course.title} />

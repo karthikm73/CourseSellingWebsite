@@ -26,6 +26,7 @@ function AllCourses() {
     author();
 
   }, [])
+  console.log(author)
   return (<>
   <Typography variant="h4" sx={{ textAlign: 'center', marginBottom: '20px' }}>All Courses</Typography>
     <Box sx={{ width: '100%' }}>
@@ -71,14 +72,14 @@ function AllCourses() {
   <Typography variant="h4" sx={{ textAlign: 'center', marginTop: '20px' }}>All Authors</Typography>
   <Box sx={{ width: '100%' }}>
       <Grid container spacing={2}>
-        {author.filter(author => author.img).map((author) => (
+        {author.filter(author => author.image).map((author) => (
           <Grid item xs={12} sm={6} md={4} key={author.id}>
             <Card sx={{ minWidth: 345, maxWidth: 345 }}>
               <CardActionArea>
                 <CardMedia
                   component="img"
                   height="140"
-                  image={author.img}
+                  image={author.image}
                   alt={author.username}
                   sx={{minHeight:200}}
                 />

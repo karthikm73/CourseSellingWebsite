@@ -12,16 +12,28 @@ router.get('/me',authenticatejwt,async(req,res)=>{
     const role = req.user.role;
 
     const admin = await Admin.findOne({username});
-    if(!admin){
-        res.status(403).json({msg: "Admin doesnt exist"})
+    const user = await User.findOne({username});
+    if(!admin && !user){
+        res.status(403).json({msg: "Admin or User doesnt exist"})
         return
     }
     else{
-        res.json({
-            username: admin.username,
-            role:role
+        if(admin){
+            res.json({
+                username: admin.username,
+                role:role
+            })
+            return
+        }
+        if(user){
+            res.json({
+                username: user.username,
+                role:role
+            })
+            return
+        }
 
-        })
+        
 
     }
     

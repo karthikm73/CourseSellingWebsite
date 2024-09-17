@@ -11,17 +11,18 @@ function Footer() {
                 padding: '20px 0',
                 // marginTop: 'auto',
             }}
+            
         >
             <Grid container spacing={2} justifyContent="center">
                 <Grid item xs={12} sm={6} md={4}>
                     <Typography variant="h6" gutterBottom>Contact Us</Typography>
                     <Typography variant="body1">Email: contact@example.com</Typography>
-                    <Typography variant="body1">Phone: +1 (123) 456-7890</Typography>
+                    <Typography variant="body1">Phone: +91 7483527408</Typography>
                 </Grid>
                 <Grid item xs={12} sm={6} md={4}>
                     <Typography variant="h6" gutterBottom>Address</Typography>
-                    <Typography variant="body1">1234 Main St</Typography>
-                    <Typography variant="body1">Anytown, USA 12345</Typography>
+                    <Typography variant="body1">1234 Abbigere</Typography>
+                    <Typography variant="body1">Banglore India 560090 </Typography>
                 </Grid>
                 <Grid item xs={12} sm={6} md={4}>
                     <Typography variant="h6" gutterBottom>Follow Us</Typography>

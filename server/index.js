@@ -24,4 +24,4 @@ app.listen(port, () => {
 })
 
 
-mongoose.connect('url');
+mongoose.connect('mongodb+srv://karthikm0312:karthikm0312@cluster0.sbpgqcf.mongodb.net/TakeCourse');
